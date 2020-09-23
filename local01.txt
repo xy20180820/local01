@@ -1,0 +1,37 @@
+#https://blog.csdn.net/fei347795790/article/details/99685089
+import requests
+import pprint # 用于格式化打印字典类型数据
+url = 'http://t.weather.sojson.com/api/weather/city/101280101'
+response = requests.get(url)
+pprint.pprint(response.json())
+
+
+
+import os
+username = os.environ['username']
+passwd = os.environ['passwd']
+print u"python调用jenkins的参数值:"
+print username
+print passwd
+
+
+
+
+创建配置文件：vim /etc/yum.repos.d/nux-misc.repo，配置文件中的信息如下：
+
+[nux-misc]
+name=Nux Misc
+baseurl=http://li.nux.ro/download/nux/misc/el7/x86_64/
+enabled=0
+gpgcheck=1
+gpgkey=http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+
+    安装tunctl软件包：yum --enablerepo=nux-misc install tunctl
+
+作者：府学路十八吖
+链接：https://www.jianshu.com/p/0c13a00104ac
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+fio -filename=/dev/sdb -direct=1 -iodepth 1 -thread -rw=read -ioengine=psync -bs=16k -size=200G -numjobs=30 -runtime=1000 -group_reporting
